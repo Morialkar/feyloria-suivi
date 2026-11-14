@@ -151,15 +151,18 @@ L'après-midi est consacrée à la fluidité (60 images/s sur l'élan de la bout
 - 10:52 — Écran de chargement : le jeu se construit en arrière-plan sous le logo.
 - 10:59 — Palais de Nacre marin : perles, volutes de vagues, étoiles de mer, coquillages.
 - 11:10 — Une carte touchée jaillit de sa place en très grand, puis y retourne.
+- 11:45 — Journal de bord du projet : ce fichier, tenu à chaque action commencée ou terminée.
+- 11:57 — Site de suivi public, au look Aurore du jeu : morialkar.github.io/feyloria-suivi (Astro, GitHub Pages, une page par jour).
 
 ### Commencé
 
-- Journal de bord du projet (ce fichier) et site de suivi public (dépôt `feyloria-suivi`, Astro, GitHub Pages, mis à jour chaque jour).
+- Mise à jour quotidienne automatique du site à partir de ce journal.
 
 ### À suivre
 
 - Calibrage des joueurs simulés : les vrais joueurs dépassent presque partout la cible « top 25 % une fois sur deux », et les récompenses montent à environ 1300 éclats par jour. À régler avec l'économie.
 - Hébergement du serveur sur AWS (lots 6 et 7 des specs).
 - Écrans du cycle multijoueur : design à faire (minimum fonctionnel pour l'instant).
+- Une image par jour pour le site, générée par script.
 
-Commits : 30
+Commits : 34
