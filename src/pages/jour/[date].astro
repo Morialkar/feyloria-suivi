@@ -30,11 +30,11 @@ const blocs: { titre: string; puces: Puce[]; classe: string }[] = [
       <img class="fond" src={piece} alt="" />
       {affiche && (
         <a class="affiche" href={affiche} aria-label="Voir l'image du jour en grand">
-          <img src={affiche} alt={`Jour ${rang + 1} : ${jour.titre}`} />
+          <img src={affiche} alt={`${dateLongue(jour.date)} : ${jour.titre}`} />
         </a>
       )}
       <div class="contenu">
-        <p class="jour-n">Jour {rang + 1} · {dateLongue(jour.date).toLowerCase()}</p>
+        <p class="jour-n">{dateLongue(jour.date)}</p>
         <h1>{jour.titre}</h1>
         <div class="resume" set:html={jour.resumeHtml} />
         <p class="chiffres">
