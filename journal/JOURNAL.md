@@ -153,6 +153,7 @@ L'après-midi est consacrée à la fluidité (60 images/s sur l'élan de la bout
 - 11:10 — Une carte touchée jaillit de sa place en très grand, puis y retourne.
 - 11:45 — Journal de bord du projet : ce fichier, tenu à chaque action commencée ou terminée.
 - 11:57 — Site de suivi public, au look Aurore du jeu : morialkar.github.io/feyloria-suivi (Astro, GitHub Pages, une page par jour).
+- 12:20 — Une image par jour pour le site, d'après le panneau « Petite note » de Thomas : une pièce du jeu assombrie, le logo, « Jour N », le titre du jour et ses faits marquants.
 
 ### Commencé
 
@@ -163,6 +164,5 @@ L'après-midi est consacrée à la fluidité (60 images/s sur l'élan de la bout
 - Calibrage des joueurs simulés : les vrais joueurs dépassent presque partout la cible « top 25 % une fois sur deux », et les récompenses montent à environ 1300 éclats par jour. À régler avec l'économie.
 - Hébergement du serveur sur AWS (lots 6 et 7 des specs).
 - Écrans du cycle multijoueur : design à faire (minimum fonctionnel pour l'instant).
-- Une image par jour pour le site, générée par script.
 
 Commits : 34

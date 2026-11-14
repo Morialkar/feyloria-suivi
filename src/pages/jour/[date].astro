@@ -16,7 +16,8 @@ interface Props {
 }
 const { jour, avant, apres, rang } = Astro.props;
 const ids = Object.keys(pieces);
-const image = jour.image ? lien(jour.image) : lien(`img/pieces/${ids[rang % ids.length]}.webp`);
+const piece = lien(`img/pieces/${ids[rang % ids.length]}.webp`);
+const affiche = jour.image ? lien(jour.image) : undefined; // l'image du jour, montrée entière
 const blocs: { titre: string; puces: Puce[]; classe: string }[] = [
   { titre: 'Fait', puces: jour.fait, classe: 'fait' },
   { titre: 'Commencé', puces: jour.commence, classe: 'commence' },
@@ -25,8 +26,13 @@ const blocs: { titre: string; puces: Puce[]; classe: string }[] = [
 ---
 <Base titre={`${jour.titre} · Feyloria, ${dateCourte(jour.date)}`} description={jour.resumeTexte}>
   <article class="conteneur">
-    <header class="carte tete holo-anim">
-      <img class="fond" src={image} alt="" />
+    <header class:list={['carte', 'tete', 'holo-anim', { 'avec-affiche': affiche }]}>
+      <img class="fond" src={piece} alt="" />
+      {affiche && (
+        <a class="affiche" href={affiche} aria-label="Voir l'image du jour en grand">
+          <img src={affiche} alt={`Jour ${rang + 1} : ${jour.titre}`} />
+        </a>
+      )}
       <div class="contenu">
         <p class="jour-n">Jour {rang + 1} · {dateLongue(jour.date).toLowerCase()}</p>
         <h1>{jour.titre}</h1>
@@ -65,6 +71,11 @@ const blocs: { titre: string; puces: Puce[]; classe: string }[] = [
   .fond { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 40%; border-radius: inherit; opacity: 0.55; }
   .tete::after { background: linear-gradient(180deg, rgba(18, 8, 44, 0.1), rgba(18, 8, 44, 0.92) 70%); inset: 0; height: auto; border-radius: inherit; }
   .contenu { position: relative; z-index: 1; padding: 120px 36px 32px; max-width: 52em; }
+  .avec-affiche { display: grid; grid-template-columns: minmax(200px, 300px) 1fr; align-items: center; gap: 8px; }
+  .avec-affiche .contenu { padding: 32px 36px 32px 8px; }
+  .affiche { position: relative; z-index: 1; display: block; margin: 24px; border-radius: 22px; overflow: hidden; box-shadow: var(--ombre), 0 0 0 3px rgba(255, 255, 255, 0.18), 0 0 36px rgba(255, 90, 224, 0.45); transition: transform 0.2s ease; }
+  .affiche:hover { transform: scale(1.02); }
+  .affiche img { display: block; width: 100%; height: auto; }
   .jour-n { margin: 0 0 6px; color: var(--beurre); font-weight: 800; }
   
   h1 { font-size: clamp(2rem, 5vw, 3.2rem); margin-bottom: 14px; }
@@ -82,6 +93,11 @@ const blocs: { titre: string; puces: Puce[]; classe: string }[] = [
   .suivre h2 .pilule-titre { color: var(--beurre); }
   .suite { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-block: 12px 24px; }
   .suite > a:nth-child(2) { color: var(--doux); font-weight: 700; }
+  @media (max-width: 720px) {
+    .avec-affiche { grid-template-columns: 1fr; }
+    .affiche { margin: 20px auto 0; width: min(78%, 320px); }
+    .avec-affiche .contenu { padding: 18px 20px 22px; }
+  }
   @media (max-width: 560px) {
     .contenu { padding: 90px 20px 22px; }
     .liste li { flex-direction: column; gap: 2px; padding: 12px 16px; }
