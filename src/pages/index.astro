@@ -36,7 +36,7 @@ const repli = (i: number) => `img/pieces/${ids[i % ids.length]}.webp`;
   </section>
 
   <section class="conteneur bloc">
-    <h2 class="titre-section">Aujourd'hui</h2>
+    <h2 class="titre-section">La dernière journée</h2>
     <CarteJour jour={dernier} repli={repli(jours.length - 1)} vedette />
     {dernier.suivre.length > 0 && (
       <div class="carte prochaines">
