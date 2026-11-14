@@ -1,0 +1,111 @@
+/* Le look Aurore du jeu : nuit violette, aurores, cadres irisés, verre. */
+@font-face { font-family: 'Baloo 2'; src: url('../assets/fonts/Baloo2.ttf') format('truetype'); font-weight: 400 800; font-display: swap; }
+@font-face { font-family: 'Bagel Fat One'; src: url('../assets/fonts/BagelFatOne-Regular.ttf') format('truetype'); font-display: swap; }
+@font-face { font-family: 'Kavoon'; src: url('../assets/fonts/Kavoon-Regular.ttf') format('truetype'); font-display: swap; }
+
+:root {
+  --nuit: #12082c;
+  --nuit-2: #1f0d45;
+  --violet: #3a1675;
+  --magenta: #ff5ae0;
+  --lilas: #b06aff;
+  --cyan: #6ce8ff;
+  --beurre: #ffe07a;
+  --texte: #fbf4ff;
+  --doux: #d9c6ff;
+  --discret: #a993d6;
+  --holo: linear-gradient(115deg, #f9b8dc, #d7c4ff 22%, #a9e4f7 44%, #b9f2da 64%, #ffe9b8 82%, #f9b8dc);
+  --verre: linear-gradient(90deg, var(--magenta), var(--lilas) 50%, var(--cyan));
+  --carte: rgba(36, 14, 78, 0.72);
+  --ombre: 0 18px 50px rgba(8, 0, 24, 0.55);
+  --lueur: 0 0 0 1px rgba(255, 90, 224, 0.18), 0 0 36px rgba(216, 122, 255, 0.28);
+  --rayon: 26px;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+
+html { background: var(--nuit); }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Baloo 2', system-ui, sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--texte);
+  background:
+    radial-gradient(1200px 700px at 15% -10%, rgba(176, 106, 255, 0.35), transparent 60%),
+    radial-gradient(900px 600px at 95% 10%, rgba(108, 232, 255, 0.18), transparent 60%),
+    radial-gradient(1000px 800px at 50% 110%, rgba(255, 90, 224, 0.22), transparent 60%),
+    linear-gradient(180deg, var(--nuit) 0%, var(--nuit-2) 45%, var(--nuit) 100%);
+  overflow-x: hidden;
+}
+
+/* les aurores du jeu, en voiles qui ondulent doucement */
+.aurores { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.aurores img {
+  position: absolute; top: -10%; width: min(70vw, 760px); opacity: 0.55; mix-blend-mode: screen;
+  animation: onde 18s ease-in-out infinite alternate;
+}
+.aurores img:nth-child(1) { left: -12%; }
+.aurores img:nth-child(2) { right: -14%; top: 20%; animation-delay: -6s; opacity: 0.4; }
+.aurores img:nth-child(3) { left: 30%; top: 55%; animation-delay: -12s; opacity: 0.3; }
+@keyframes onde { from { transform: translateY(0) rotate(-2deg) scale(1); } to { transform: translateY(40px) rotate(3deg) scale(1.06); } }
+@media (prefers-reduced-motion: reduce) { .aurores img, .holo-anim { animation: none !important; } }
+
+main, header.site, footer.site { position: relative; z-index: 1; }
+
+.conteneur { width: min(1120px, 100% - 32px); margin-inline: auto; }
+
+a { color: var(--cyan); }
+a:hover { color: var(--texte); }
+
+h1, h2, h3 { font-family: 'Bagel Fat One', 'Baloo 2', sans-serif; font-weight: 400; letter-spacing: 0.01em; line-height: 1.15; margin: 0; }
+
+/* une pilule de titre, comme sur les pages du jeu */
+.pilule-titre {
+  display: inline-flex; align-items: center; gap: 0.6em;
+  padding: 0.35em 1.2em; border-radius: 999px;
+  background: linear-gradient(180deg, #3d1a7c, #26104f);
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.08), var(--lueur);
+  position: relative;
+}
+.pilule-titre::before { content: ''; position: absolute; inset: -2px; border-radius: inherit; padding: 2px; background: var(--holo); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none; }
+.pilule-titre .etoile { color: var(--beurre); font-size: 0.8em; }
+
+/* une carte de verre au contour irisé */
+.carte {
+  position: relative; border-radius: var(--rayon);
+  background: var(--carte);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--ombre), var(--lueur);
+}
+.carte::before {
+  content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 2.5px;
+  background: var(--holo); background-size: 200% 100%;
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude;
+  pointer-events: none;
+}
+.carte::after { content: ''; position: absolute; inset: 2.5px 2.5px auto; height: 40%; border-radius: calc(var(--rayon) - 2px) calc(var(--rayon) - 2px) 0 0; background: linear-gradient(180deg, rgba(255,255,255,0.10), transparent); pointer-events: none; }
+.holo-anim::before { animation: reflet 8s linear infinite; }
+@keyframes reflet { to { background-position: 200% 0; } }
+
+/* un bouton de verre bombé arc-en-ciel */
+.bouton {
+  display: inline-flex; align-items: center; gap: 0.4em; padding: 0.6em 1.4em; border-radius: 999px;
+  font-weight: 800; color: #fff; text-decoration: none; text-shadow: 0 1px 2px rgba(106, 44, 176, 0.7);
+  background: var(--verre); position: relative; overflow: hidden;
+  box-shadow: 0 6px 18px rgba(255, 90, 224, 0.35), inset 0 -3px 0 rgba(0,0,0,0.15);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.bouton::after { content: ''; position: absolute; inset: 3px 8px auto; height: 45%; border-radius: 999px; background: linear-gradient(180deg, rgba(255,255,255,0.7), rgba(255,255,255,0.05)); }
+.bouton:hover { color: #fff; transform: translateY(-2px); }
+.bouton:active { transform: translateY(2px) scale(0.98); }
+.bouton.or { background: linear-gradient(90deg, #ffe07a, #fff4c8 50%, #e09828); color: #4a2a00; text-shadow: none; }
+
+.etiquette { display: inline-block; padding: 0.15em 0.75em; border-radius: 999px; font-size: 0.8em; font-weight: 800; background: rgba(255,255,255,0.12); color: var(--doux); }
+
+.muet { color: var(--discret); }
+
+:focus-visible { outline: 3px solid var(--cyan); outline-offset: 3px; border-radius: 8px; }

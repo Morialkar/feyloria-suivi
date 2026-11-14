@@ -1,0 +1,55 @@
+---
+import '../styles/global.css';
+import { lien } from '../lib/journal';
+
+interface Props {
+  titre: string;
+  description?: string;
+}
+const { titre, description = 'Le journal de bord du développement de Feyloria, jour par jour.' } = Astro.props;
+---
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{titre}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={titre} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(lien('img/logo.webp'), Astro.site).href} />
+    <meta name="theme-color" content="#12082c" />
+    <link rel="icon" href={lien('img/aria_galaxy.webp')} />
+  </head>
+  <body>
+    <div class="aurores" aria-hidden="true">
+      <img src={lien('img/aurore_1.webp')} alt="" />
+      <img src={lien('img/aurore_2.webp')} alt="" />
+      <img src={lien('img/aurore_3.webp')} alt="" />
+    </div>
+    <header class="site conteneur">
+      <a class="marque" href={lien('/')} aria-label="Accueil du journal">
+        <img src={lien('img/logo.webp')} alt="Feyloria" width="168" height="94" />
+      </a>
+      <nav>
+        <a href={lien('/')}>Journal</a>
+        <a href={lien('/#jours')}>Tous les jours</a>
+      </nav>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer class="site conteneur">
+      <p class="muet">Feyloria, un jeu de décoration magique en développement. Ce journal se met à jour une fois par jour.</p>
+    </footer>
+  </body>
+</html>
+
+<style>
+  header.site { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 18px; }
+  .marque img { display: block; max-width: 40vw; height: auto; width: 140px; filter: drop-shadow(0 6px 18px rgba(255, 90, 224, 0.35)); }
+  nav { display: flex; gap: 6px; flex-wrap: wrap; }
+  nav a { color: var(--doux); text-decoration: none; font-weight: 700; padding: 0.3em 0.9em; border-radius: 999px; }
+  nav a:hover { background: rgba(255, 255, 255, 0.08); color: var(--texte); }
+  footer.site { padding-block: 48px 64px; text-align: center; font-size: 0.9em; }
+</style>

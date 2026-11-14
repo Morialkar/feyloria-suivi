@@ -1,0 +1,75 @@
+# Une fois par jour (et à chaque push), relit le journal de bord du jeu,
+# garde la nouvelle version dans ce dépôt, construit le site et le publie sur
+# GitHub Pages.
+name: Journal
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '0 11 * * *' # 6 h, heure de l'Est (7 h l'été)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Lire le journal du jeu
+        env:
+          FEYLORIA_DEPLOY_KEY: ${{ secrets.FEYLORIA_DEPLOY_KEY }}
+        run: |
+          if [ -z "$FEYLORIA_DEPLOY_KEY" ]; then
+            echo "::warning::secret FEYLORIA_DEPLOY_KEY absent : le site garde le journal déjà dans le dépôt"
+            exit 0
+          fi
+          mkdir -p ~/.ssh
+          printf '%s\n' "$FEYLORIA_DEPLOY_KEY" > ~/.ssh/feyloria
+          chmod 600 ~/.ssh/feyloria
+          ssh-keyscan github.com >> ~/.ssh/known_hosts 2>/dev/null
+          export GIT_SSH_COMMAND="ssh -i ~/.ssh/feyloria -o IdentitiesOnly=yes"
+          sh scripts/sync-journal.sh
+
+      - name: Garder la nouvelle version
+        run: |
+          git add journal public/jours
+          if git diff --cached --quiet; then
+            echo "journal inchangé"
+          else
+            git config user.name "feyloria-journal[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git commit -m "📓 Journal du $(TZ=America/Toronto date +%F)"
+            git push
+          fi
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+      - run: npm run build
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
