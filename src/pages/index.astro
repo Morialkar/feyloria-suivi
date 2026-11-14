@@ -8,7 +8,7 @@ const jours = lireJournal();
 const recents = [...jours].reverse();
 const dernier = recents[0];
 const premier = jours[0];
-const commits = jours.reduce((n, j) => n + j.commits, 0);
+const pieces6 = Object.keys(pieces).length;
 const realisations = jours.reduce((n, j) => n + j.fait.length, 0);
 const ids = Object.keys(pieces) as (keyof typeof pieces)[];
 const repli = (i: number) => `img/pieces/${ids[i % ids.length]}.webp`;
@@ -24,8 +24,8 @@ const repli = (i: number) => `img/pieces/${ids[i % ids.length]}.webp`;
       </p>
       <div class="stats">
         <div class="stat carte"><strong>{jours.length}</strong><span>jours</span></div>
-        <div class="stat carte"><strong>{realisations}</strong><span>réalisations</span></div>
-        <div class="stat carte"><strong>{commits}</strong><span>commits</span></div>
+        <div class="stat carte"><strong>{realisations}</strong><span>nouveautés</span></div>
+        <div class="stat carte"><strong>{pieces6}</strong><span>pièces à décorer</span></div>
       </div>
       <a class="bouton" href={lien(`jour/${dernier.date}/`)}>Voir le dernier jour ›</a>
     </div>

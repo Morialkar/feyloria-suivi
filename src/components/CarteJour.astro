@@ -19,8 +19,7 @@ const actions = jour.fait.length;
     <h3>{jour.titre}</h3>
     <p class="resume">{jour.resumeTexte}</p>
     <p class="chiffres">
-      <span class="etiquette">{actions} réalisation{actions > 1 ? 's' : ''}</span>
-      {jour.commits > 0 && <span class="etiquette">{jour.commits} commits</span>}
+      <span class="etiquette">{actions} nouveauté{actions > 1 ? 's' : ''}</span>
       {jour.commence.length > 0 && <span class="etiquette en-cours">{jour.commence.length} en cours</span>}
     </p>
   </div>

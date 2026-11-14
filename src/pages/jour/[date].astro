@@ -38,8 +38,7 @@ const blocs: { titre: string; puces: Puce[]; classe: string }[] = [
         <h1>{jour.titre}</h1>
         <div class="resume" set:html={jour.resumeHtml} />
         <p class="chiffres">
-          <span class="etiquette">{jour.fait.length} réalisations</span>
-          {jour.commits > 0 && <span class="etiquette">{jour.commits} commits</span>}
+          <span class="etiquette">{jour.fait.length} nouveautés</span>
         </p>
       </div>
     </header>
