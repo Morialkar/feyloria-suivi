@@ -53,3 +53,35 @@ Grosse journée : tout ce qui entoure la décoration arrive.
 - Équipes du monde
 - Une quinzaine de styles exclusifs
 - Nouveau look : Aurore
+
+## 2026-11-14 — Le multijoueur
+
+Le jeu devient multijoueur, et on ouvre ce journal.
+
+### Fait
+
+- Créatures du Palais de Nacre et leurs cartes
+- Look Aurore partout
+- Multijoueur conçu : classements, duels, likes
+- Jouer en ligne ou hors ligne
+- Achats prêts
+- Jeu plus fluide
+- Écran de chargement
+- Journal de bord et site de suivi
+- Aria prend vie dans le profil : elle respire, cligne des yeux, sourit et dit coucou
+- Menu du bas toujours ouvert dans les pages, avec Aria au coin ; caché pendant qu'on décore
+- Ta photo de profil dans le menu du bas
+- Ouvrir un paquet de cartes fait un bang : éclair, ondes et éclats
+- Les pages glissent l'une vers l'autre avec un rebond et un reflet
+- Effets de jeu partout : gains qui s'envolent, Aria qui annonce les nouvelles, duels animés, fête quand on monte de niveau
+- Animations plus fluides, bordure du panneau corrigée
+- Palais de Nacre : essai de cadres peints, retiré pour retrouver l'ancien look plus harmonieux
+- Palais de Nacre : vrais coquillages, perles, étoiles de mer et vagues peints, à la place des dessins
+- Menu du bas : icônes de cristal peintes et une lune sur sa pointe
+- Orbe peinte pour la page ouverte, ornements dorés aux coins des cartes
+
+### À suivre
+
+- Régler les récompenses
+- Mettre le multijoueur en ligne
+- Dessiner les écrans du multijoueur
