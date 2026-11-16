@@ -85,3 +85,30 @@ Le jeu devient multijoueur, et on ouvre ce journal.
 - Régler les récompenses
 - Mettre le multijoueur en ligne
 - Dessiner les écrans du multijoueur
+
+## 2026-11-15 — Petites touches
+
+De nouvelles images peintes viennent embellir les défis.
+
+### Fait
+
+- Un nuage et une lune peints devant le jour du défi, à leur vraie taille
+- Coins des panneaux redevenus propres, sans ornements dorés
+- Le jour du défi à gauche du titre, sur la même ligne que les classements
+- Le look Aurore partout dans le jeu, pièces comprises
+- Logo des défis un peu plus haut, pour laisser respirer le titre
+- 185 nouvelles textures pour les meubles, tirées de dessins, de peintures et de photos
+- Le jeu s’ouvre de nouveau : les textures se chargent seulement quand on s’en sert
+- Une pièce commencée n’est plus perdue, même si le téléphone ferme le jeu
+- La pièce soumise du jour se rouvre pour la modifier, avec un bouton « Modifier ma soumission »
+- Un grand moment arc-en-ciel qui scintille quand on monte de niveau
+- Cuisine coquillage mieux découpée : fenêtre, niches, entre les pattes des tabourets
+- Page profil plus simple, qui défile d'un seul geste, avec le total de likes
+- Boutique : ce qu'on a déjà acheté une fois est marqué « Possédé »
+- Une nouvelle pièce se découpe mieux toute seule : le jeu devine ce qui est devant (la table devant la bibliothèque)
+- Salle des animaux préparée : les chats et le chien gardent leurs vraies couleurs
+
+### Commencé
+
+- Préparer une nouvelle pièce toute seule, à partir d'une version en couleurs
+- Un atelier pour retoucher les contours au doigt, du Mac ou du téléphone
