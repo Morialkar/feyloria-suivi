@@ -112,3 +112,25 @@ De nouvelles images peintes viennent embellir les défis.
 
 - Préparer une nouvelle pièce toute seule, à partir d'une version en couleurs
 - Un atelier pour retoucher les contours au doigt, du Mac ou du téléphone
+
+## 2026-11-16 — Deux nouvelles pièces
+
+La salle de jeux et la salle des animaux arrivent dans le Palais de Nacre.
+
+### Fait
+
+- Salle de jeux et salle des animaux ajoutées au jeu
+- On peut les décorer tout de suite depuis Inspiration
+- Salon de la fontaine ajouté, 9e pièce du Palais de Nacre, préparé sans attendre la version en couleurs
+- Nouvelle icône du jeu : le canapé coquillage qui prend ses couleurs
+- Entrée du palais ajoutée, 10e pièce du Palais de Nacre : on décore la façade, l'escalier et la porte
+- Terrasse de la sirène ajoutée, 11e pièce du Palais de Nacre
+- Garde-robe, galerie d'art et observatoire marin ajoutés : le Palais de Nacre a ses 14 pièces, une par jour du défi
+- Deux nouvelles collections : la Forêt cristalline et la Cabane de la Sorcière, 14 pièces chacune
+- Toutes les collections en même temps : chacune ouvre une pièce par jour, l'une sous l'autre sur la page des défis
+- Le paquet de cartes quitte la page des défis (il reste dans Cartes)
+- Troisième nouvelle collection : le Manoir Sucrerie, 14 pièces en bonbons et gâteaux
+- Toutes les couleurs à cadenas sont ouvertes, en attendant la vraie boutique
+- L'onglet Inspiration s'appelle maintenant Abonnements
+- Deux bois dessinés à la main, doré et blanc
+- Confettis géométriques
