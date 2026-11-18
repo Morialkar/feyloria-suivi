@@ -134,3 +134,15 @@ La salle de jeux et la salle des animaux arrivent dans le Palais de Nacre.
 - L'onglet Inspiration s'appelle maintenant Abonnements
 - Deux bois dessinés à la main, doré et blanc
 - Confettis géométriques
+
+## 2026-11-17 — Six collections
+
+Deux nouvelles collections arrivent, et chaque pièce reste ouverte deux jours.
+
+### Fait
+
+- Le Château royal : 14 pièces dorées, du grand escalier aux jardins
+- La Zone futuriste : 14 pièces chromées sous les planètes
+- Six collections en même temps dans le jeu
+- Chaque pièce dure deux jours, une collection dure 28 jours
+- Au plus 9 zones à colorer par pièce dans les nouvelles collections
