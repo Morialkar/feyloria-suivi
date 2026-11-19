@@ -146,3 +146,11 @@ Deux nouvelles collections arrivent, et chaque pièce reste ouverte deux jours.
 - Six collections en même temps dans le jeu
 - Chaque pièce dure deux jours, une collection dure 28 jours
 - Au plus 9 zones à colorer par pièce dans les nouvelles collections
+
+## 2026-11-18 — Pause
+
+Le jeu se met en pause : il reste sur les téléphones où il est installé.
+
+### Fait
+
+- Jeu mis en pause
